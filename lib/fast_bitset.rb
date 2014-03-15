@@ -26,7 +26,9 @@ module FastBitset
       alias bitstring_to_ids native_bitstring_to_ids
     end
   rescue LoadError
-    alias bitstring_to_ids pure_bitstring_to_ids
+    class << self
+      alias bitstring_to_ids pure_bitstring_to_ids
+    end
   end
 
 end
