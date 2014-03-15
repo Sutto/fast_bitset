@@ -7,4 +7,4 @@ Rake::ExtensionTask.new("fast_bitset") do |ext|
 end
 
 RSpec::Core::RakeTask.new(:spec)
-task default: :spec
+task default: [:compile, :spec]
