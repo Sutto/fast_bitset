@@ -6,10 +6,10 @@ require 'fast_bitset/version'
 Gem::Specification.new do |spec|
   spec.name          = "fast_bitset"
   spec.version       = FastBitset::VERSION
-  spec.authors       = ["Darcy Laycock"]
+  spec.authors       = ["Darcy Laycock", "Matt Delves", "Matt Allen"]
   spec.email         = ["sutto@sutto.net"]
   spec.summary       = %q{Fast Bit String to Ruby Arrays of IDs, using C for magical speediness. Perfect for use with Redis Bit sets}
-  spec.homepage      = "https://github.com/Sutto"
+  spec.homepage      = "https://github.com/Sutto/fast_bitset"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

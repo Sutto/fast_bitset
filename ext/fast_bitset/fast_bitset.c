@@ -1,4 +1,5 @@
 #include "ruby.h"
+#include "./fast_bitset.h"
 
 VALUE FastBitsetModule = Qnil;
 
@@ -34,7 +35,7 @@ VALUE rb_fast_bitset_get_ids(VALUE self, VALUE bitstring) {
 }
 
 void rb_init_fast_bitset() {
-  rb_define_module_function(FastBitsetModule, "bitstring_to_id", rb_fast_bitset_get_ids, 1);
+  rb_define_module_function(FastBitsetModule, "native_bitstring_to_ids", rb_fast_bitset_get_ids, 1);
 }
 
 void Init_fast_bitset()
