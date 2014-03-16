@@ -38,6 +38,30 @@ describe FastBitset do
       expect(convert("💩")).to eq [0, 1, 2, 3, 8, 11, 12, 13, 14, 15, 16, 19, 22, 24, 26, 28, 31]
     end
 
+    it 'should work with multiples of 2' do
+      expect(convert("\xFF\xFF")).to eq (0..15).to_a
+      expect(convert("\xFF\xFF\xFF\xFF")).to eq (0..31).to_a
+      expect(convert("\xFF\xFF\xFF\xFF\xFF\xFF")).to eq (0..47).to_a
+    end
+
+    it 'should work with multiples of 3' do
+      expect(convert("\xFF\xFF\xFF")).to eq (0..23).to_a
+      expect(convert("\xFF\xFF\xFF\xFF\xFF\xFF\xFF")).to eq (0..55).to_a
+      expect(convert("\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF")).to eq (0..87).to_a
+    end
+
+    it 'should work with multiples of 4' do
+      expect(convert("\xFF\xFF\xFF\xFF")).to eq (0..31).to_a
+      expect(convert("\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF")).to eq (0..63).to_a
+      expect(convert("\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF")).to eq (0..95).to_a
+    end
+
+    it 'should work with multiples of 8' do
+      expect(convert("\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF")).to eq (0..63).to_a
+      expect(convert("\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF")).to eq (0..127).to_a
+      expect(convert("\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF")).to eq (0..191).to_a
+    end
+
   end
 
   describe '.native_bitstring_to_ids' do
